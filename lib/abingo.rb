@@ -81,7 +81,7 @@ class Abingo
          while Abingo.cache.exist?(lock_key)
            sleep(0.1)
          end
-         break
+         # break # I think this breaks something in Ruby 1.9.2 - I'm not exactly sure what.
        end
        Abingo.cache.write(lock_key, 1, :expires_in => 5.seconds)
        conversion_name = options[:conversion] || options[:conversion_name]
