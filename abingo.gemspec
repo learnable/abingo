@@ -44,7 +44,6 @@ Gem::Specification.new do |s|
      "lib/generators/abingo_views/templates/views/dashboard/_experiment.html.erb",
      "lib/generators/abingo_views/templates/views/dashboard/index.html.erb",
      "strip.rb",
-     "tasks/abingo_tasks.rake",
      "test/abingo_test.rb",
      "test/test_helper.rb",
      "uninstall.rb"
