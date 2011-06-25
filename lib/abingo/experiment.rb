@@ -79,7 +79,8 @@ class Abingo::Experiment < ActiveRecord::Base
 
       #This might have issues in very, very high concurrency environments...
 
-      tests_listening_to_conversion = Abingo.cache.read("Abingo::tests_listening_to_conversion#{conversion_name}") || []
+      cached_tests_listening_to_conversion = Abingo.cache.read("Abingo::tests_listening_to_conversion#{conversion_name}")
+      tests_listening_to_conversion = cached_tests_listening_to_conversion ?  cached_tests_listening_to_conversion.dup : []
       tests_listening_to_conversion << test_name unless tests_listening_to_conversion.include? test_name
       Abingo.cache.write("Abingo::tests_listening_to_conversion#{conversion_name}", tests_listening_to_conversion)
       experiment
